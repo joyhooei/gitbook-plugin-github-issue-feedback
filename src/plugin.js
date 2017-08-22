@@ -33,7 +33,7 @@ function getAPIURL(config, filePath) {
     if (config["githubAPIBaseURL"]) {
         return urlJoin(config["githubAPIBaseURL"], filePath);
     }
-    return urlJoin(`https://api.github.com/repos/`, config.repo, `contents`, filePath);
+    return urlJoin(`https://api.github.com/repos/`, config.repo, `contents`, filePath, `?ref=${config.branch}`);
 }
 
 function getIssueURL(config) {
@@ -49,7 +49,7 @@ window.require(["gitbook"], function(gitbook) {
         var reportElement = document.createElement("button");
         reportElement.textContent = "Bug Report";
         reportElement.className = "gitbook-plugin-github-issue-feedback-language";
-        reportElement.setAttribute("style", "position:fixed; right:20;bottom:30;");
+        reportElement.setAttribute("style", "position:absolute; right:20;bottom:30;");
         var clickEvent = ("ontouchstart" in window) ? "touchend" : "click";
         reportElement.addEventListener(clickEvent, function(event) {
             var pathname = path.join(gitbook.state.config.root || "./", gitbook.state.config.language, gitbook.state.filepath);
