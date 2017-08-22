@@ -33,7 +33,7 @@ function getAPIURL(config, filePath) {
     if (config["githubAPIBaseURL"]) {
         return urlJoin(config["githubAPIBaseURL"], filePath);
     }
-    return urlJoin(`https://api.github.com/repos/`, config.repo, `contents`, filePath) + config.branch ? `?ref=${config.branch}` : '';
+    return urlJoin(`https://api.github.com/repos/`, config.repo, `contents`, filePath) + `?ref=${config.branch}`;
 }
 
 function getIssueURL(config) {
@@ -47,9 +47,9 @@ window.require(["gitbook"], function(gitbook) {
     gitbook.events.bind("start", function(e, pluginConfig) {
         var config = pluginConfig["github-issue-feedback-language"];
         var reportElement = document.createElement("button");
-        reportElement.textContent = "Bug Report";
+        reportElement.textContent = "Have Feedback?";
         reportElement.className = "gitbook-plugin-github-issue-feedback-language";
-        reportElement.setAttribute("style", "position:fixed; right:0;bottom:0;");
+        reportElement.setAttribute("style", "position:fixed; right:20px;bottom:20px;height:30px");
         var clickEvent = ("ontouchstart" in window) ? "touchend" : "click";
         reportElement.addEventListener(clickEvent, function(event) {
             var pathname = path.join(gitbook.state.config.root || "./", gitbook.state.config.language, gitbook.state.filepath);
