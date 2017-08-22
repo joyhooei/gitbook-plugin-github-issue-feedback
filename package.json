@@ -10,7 +10,7 @@
     "src/",
     "assets/"
   ],
-  "name": "gitbook-plugin-github-issue-feedback",
+  "name": "gitbook-plugin-github-issue-feedback-language",
   "version": "1.2.0",
   "description": "GitHub issue feedback for gitbook.",
   "main": "index.js",
