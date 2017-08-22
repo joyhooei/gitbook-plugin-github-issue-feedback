@@ -45,11 +45,11 @@ function getIssueURL(config) {
 window.require(["gitbook"], function(gitbook) {
     // plugin config
     gitbook.events.bind("start", function(e, pluginConfig) {
-        var config = pluginConfig["github-issue-feedback"];
+        var config = pluginConfig["github-issue-feedback-language"];
         var reportElement = document.createElement("button");
         reportElement.textContent = "Bug Report";
-        reportElement.className = "gitbook-plugin-github-issue-feedback";
-        reportElement.setAttribute("style", "position:fixed; right:0;bottom:0;");
+        reportElement.className = "gitbook-plugin-github-issue-feedback-language";
+        reportElement.setAttribute("style", "position:fixed; right:20;bottom:30;");
         var clickEvent = ("ontouchstart" in window) ? "touchend" : "click";
         reportElement.addEventListener(clickEvent, function(event) {
             var pathname = path.join(gitbook.state.config.root || "./", gitbook.state.config.language, gitbook.state.filepath);
